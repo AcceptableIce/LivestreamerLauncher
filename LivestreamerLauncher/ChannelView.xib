@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6206.8"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="oGi-nv-btd" id="jAC-ac-lBm"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="GameWindow" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <rect key="contentRect" x="196" y="240" width="720" height="540"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <view key="contentView" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="720" height="540"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGt-7M-1Aa">
+                        <rect key="frame" x="20" y="20" width="680" height="500"/>
+                        <clipView key="contentView" ambiguous="YES" misplaced="YES" id="QCq-t5-TDn">
+                            <rect key="frame" x="1" y="1" width="248" height="158"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <collectionView ambiguous="YES" id="hq3-2a-PNj">
+                                    <rect key="frame" x="0.0" y="0.0" width="248" height="158"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <binding destination="CVT-qh-1oc" name="content" keyPath="arrangedObjects" id="bQI-sq-tV8"/>
+                                        <outlet property="itemPrototype" destination="awA-m1-rl8" id="ds3-qk-FPg"/>
+                                    </connections>
+                                </collectionView>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="3FG-vS-M0f">
+                            <rect key="frame" x="1" y="144" width="233" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="L4R-3B-hVL">
+                            <rect key="frame" x="234" y="1" width="15" height="143"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+            </view>
+            <connections>
+                <binding destination="oGi-nv-btd" name="title" keyPath="SelectedGameName" id="u87-2o-SSv"/>
+            </connections>
+            <point key="canvasLocation" x="343" y="277"/>
+        </window>
+        <customObject id="oGi-nv-btd" customClass="AppDelegate" customModule="LivestreamerLauncher" customModuleProvider="target"/>
+        <customObject id="n3S-xa-323" customClass="GameListCollectionViewItem" customModule="LivestreamerLauncher" customModuleProvider="target">
+            <connections>
+                <outlet property="channelViewWindow" destination="QvC-M9-y7g" id="0h6-Da-TIM"/>
+            </connections>
+        </customObject>
+        <collectionViewItem id="awA-m1-rl8">
+            <connections>
+                <outlet property="view" destination="Qjr-6f-6yn" id="jhX-K6-fSP"/>
+            </connections>
+        </collectionViewItem>
+        <view id="Qjr-6f-6yn">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6B5-0I-sid">
+                    <rect key="frame" x="31" y="63" width="38" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="U4a-1t-bhB">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </view>
+        <userDefaultsController representsSharedInstance="YES" id="HLi-jV-aHf"/>
+        <arrayController id="CVT-qh-1oc">
+            <connections>
+                <binding destination="oGi-nv-btd" name="contentArray" keyPath="ChannelListing" id="E9X-Zc-PY1"/>
+            </connections>
+        </arrayController>
+    </objects>
+</document>

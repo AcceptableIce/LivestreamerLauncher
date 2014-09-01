@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		054FB32419B4E5D0006AE4C5 /* GameListCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054FB32319B4E5D0006AE4C5 /* GameListCollectionViewItem.swift */; };
+		0579D87519B533B800FB6620 /* ChannelListCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0579D87419B533B800FB6620 /* ChannelListCollectionViewItem.swift */; };
 		058E1DE819AFC160002C5377 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058E1DE719AFC160002C5377 /* main.swift */; };
 		058E1DEA19AFC160002C5377 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058E1DE919AFC160002C5377 /* AppDelegate.swift */; };
 		058E1DEC19AFC160002C5377 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058E1DEB19AFC160002C5377 /* Images.xcassets */; };
-		058E1DEF19AFC160002C5377 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 058E1DED19AFC160002C5377 /* MainMenu.xib */; };
 		058E1DFB19AFC160002C5377 /* LivestreamerLauncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058E1DFA19AFC160002C5377 /* LivestreamerLauncherTests.swift */; };
+		05A7D56E19B4DD0400DBC3F0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A7D56D19B4DD0400DBC3F0 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,15 +27,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		054FB32319B4E5D0006AE4C5 /* GameListCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameListCollectionViewItem.swift; path = ../GameListCollectionViewItem.swift; sourceTree = "<group>"; };
+		0579D87419B533B800FB6620 /* ChannelListCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListCollectionViewItem.swift; sourceTree = "<group>"; };
 		058E1DE219AFC160002C5377 /* LivestreamerLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivestreamerLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		058E1DE619AFC160002C5377 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		058E1DE719AFC160002C5377 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		058E1DE919AFC160002C5377 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		058E1DEB19AFC160002C5377 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		058E1DEE19AFC160002C5377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		058E1DF419AFC160002C5377 /* LivestreamerLauncherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LivestreamerLauncherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		058E1DF919AFC160002C5377 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		058E1DFA19AFC160002C5377 /* LivestreamerLauncherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivestreamerLauncherTests.swift; sourceTree = "<group>"; };
+		05A7D56D19B4DD0400DBC3F0 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +79,11 @@
 		058E1DE419AFC160002C5377 /* LivestreamerLauncher */ = {
 			isa = PBXGroup;
 			children = (
+				054FB32319B4E5D0006AE4C5 /* GameListCollectionViewItem.swift */,
+				0579D87419B533B800FB6620 /* ChannelListCollectionViewItem.swift */,
 				058E1DE919AFC160002C5377 /* AppDelegate.swift */,
 				058E1DEB19AFC160002C5377 /* Images.xcassets */,
-				058E1DED19AFC160002C5377 /* MainMenu.xib */,
+				05A7D56D19B4DD0400DBC3F0 /* MainMenu.xib */,
 				058E1DE519AFC160002C5377 /* Supporting Files */,
 			);
 			path = LivestreamerLauncher;
@@ -190,7 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				058E1DEC19AFC160002C5377 /* Images.xcassets in Resources */,
-				058E1DEF19AFC160002C5377 /* MainMenu.xib in Resources */,
+				05A7D56E19B4DD0400DBC3F0 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +215,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				058E1DEA19AFC160002C5377 /* AppDelegate.swift in Sources */,
+				0579D87519B533B800FB6620 /* ChannelListCollectionViewItem.swift in Sources */,
 				058E1DE819AFC160002C5377 /* main.swift in Sources */,
+				054FB32419B4E5D0006AE4C5 /* GameListCollectionViewItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,17 +238,6 @@
 			targetProxy = 058E1DF519AFC160002C5377 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		058E1DED19AFC160002C5377 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				058E1DEE19AFC160002C5377 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		058E1DFC19AFC160002C5377 /* Debug */ = {
@@ -399,6 +396,7 @@
 				058E1E0019AFC160002C5377 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		058E1E0119AFC160002C5377 /* Build configuration list for PBXNativeTarget "LivestreamerLauncherTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +405,7 @@
 				058E1E0319AFC160002C5377 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

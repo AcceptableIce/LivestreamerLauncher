@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6157" systemVersion="14A237a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6157"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6206.8"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
             <connections>
-                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="IRQ-xp-bNi"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target">
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="LivestreamerLauncher" customModuleProvider="target">
             <connections>
+                <outlet property="ChannelWindow" destination="PT2-O6-jRL" id="aTZ-An-Z0U"/>
+                <outlet property="CollectionView" destination="U4M-nf-M5x" id="XAV-Xa-vcx"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -668,13 +670,182 @@
         </menu>
         <window title="LivestreamerLauncher" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="contentRect" x="335" y="390" width="720" height="540"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="720" height="540"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hb-H5-AFI">
+                        <rect key="frame" x="20" y="20" width="680" height="468"/>
+                        <clipView key="contentView" ambiguous="YES" misplaced="YES" id="JbZ-4c-pYv">
+                            <rect key="frame" x="1" y="1" width="248" height="158"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <collectionView ambiguous="YES" id="U4M-nf-M5x">
+                                    <rect key="frame" x="0.0" y="0.0" width="248" height="158"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <binding destination="qeG-iT-exz" name="content" keyPath="arrangedObjects" id="GAA-Be-a6f"/>
+                                        <outlet property="itemPrototype" destination="tdR-QW-ovY" id="woV-Po-7LP"/>
+                                    </connections>
+                                </collectionView>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Igq-4A-6Gr">
+                            <rect key="frame" x="1" y="144" width="233" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="af2-w7-2AQ">
+                            <rect key="frame" x="234" y="1" width="15" height="143"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="01f-0j-5VH">
+                        <rect key="frame" x="624" y="496" width="82" height="32"/>
+                        <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XVe-Hk-dvz">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <connections>
+                                <action selector="onRefreshGameListingTriggered:" target="Voe-Tx-rLC" id="N4d-gC-0kb"/>
+                            </connections>
+                        </buttonCell>
+                    </button>
+                </subviews>
             </view>
         </window>
+        <collectionViewItem id="tdR-QW-ovY">
+            <connections>
+                <outlet property="view" destination="C1O-mM-DOH" id="ktG-se-lYd"/>
+            </connections>
+        </collectionViewItem>
+        <view id="C1O-mM-DOH" customClass="GameListCollectionViewItem" customModule="LivestreamerLauncher" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="226" height="280"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CG3-fF-J6x">
+                    <rect key="frame" x="28" y="20" width="170" height="35"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="m1L-uP-cfx">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="tdR-QW-ovY" name="value" keyPath="representedObject.name" id="79l-hP-vOJ"/>
+                    </connections>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nP8-lq-lge">
+                    <rect key="frame" x="36" y="63" width="154" height="197"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="A5A-IE-0VM"/>
+                    <connections>
+                        <binding destination="tdR-QW-ovY" name="value" keyPath="representedObject.image" id="nfR-eV-PWA"/>
+                    </connections>
+                </imageView>
+            </subviews>
+            <point key="canvasLocation" x="-271" y="260"/>
+        </view>
+        <arrayController id="qeG-iT-exz">
+            <connections>
+                <binding destination="Voe-Tx-rLC" name="contentArray" keyPath="GameListing" id="W7I-V7-a9y"/>
+            </connections>
+        </arrayController>
+        <arrayController id="eMj-o5-8vH" userLabel="Channel Array Controller">
+            <connections>
+                <binding destination="Voe-Tx-rLC" name="contentArray" keyPath="ChannelListing" id="Ogx-qS-PAE"/>
+            </connections>
+        </arrayController>
+        <userDefaultsController representsSharedInstance="YES" id="QSX-rJ-0r1"/>
+        <window title="GameWindow" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="PT2-O6-jRL">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <rect key="contentRect" x="196" y="240" width="720" height="540"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <view key="contentView" id="Cqx-lY-gtx">
+                <rect key="frame" x="0.0" y="0.0" width="720" height="540"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlh-Q0-yjZ">
+                        <rect key="frame" x="20" y="20" width="680" height="468"/>
+                        <clipView key="contentView" ambiguous="YES" misplaced="YES" id="Rco-Z2-xZe">
+                            <rect key="frame" x="1" y="1" width="248" height="158"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <collectionView ambiguous="YES" id="S64-GM-h43">
+                                    <rect key="frame" x="0.0" y="0.0" width="248" height="158"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <binding destination="eMj-o5-8vH" name="content" keyPath="arrangedObjects" id="u6c-em-SgL"/>
+                                        <outlet property="itemPrototype" destination="ZOV-X6-WEq" id="Nvb-Bv-ma4"/>
+                                    </connections>
+                                </collectionView>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="L21-KR-Ihu">
+                            <rect key="frame" x="1" y="144" width="233" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="O5K-jr-rsb">
+                            <rect key="frame" x="234" y="1" width="15" height="143"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EfD-9D-dd6">
+                        <rect key="frame" x="624" y="496" width="82" height="32"/>
+                        <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bes-zW-d6Z">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="onRefreshChannelListingTriggered:" target="Voe-Tx-rLC" id="jhq-zx-RVF"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ymb-nG-v9g">
+                        <rect key="frame" x="14" y="496" width="69" height="32"/>
+                        <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jQ8-5e-3sw">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="onBackButtonTriggered:" target="Voe-Tx-rLC" id="Jns-lg-lB5"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <connections>
+                <binding destination="Voe-Tx-rLC" name="title" keyPath="SelectedGameName" id="JTq-DS-cOl"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="799"/>
+        </window>
+        <collectionViewItem id="ZOV-X6-WEq" userLabel="Channel ColViewItem">
+            <connections>
+                <outlet property="view" destination="5v1-MQ-csU" id="Eeq-LL-am0"/>
+            </connections>
+        </collectionViewItem>
+        <view id="5v1-MQ-csU" customClass="ChannelListCollectionViewItem" customModule="LivestreamerLauncher" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="333" height="195"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HWI-dq-Mzh">
+                    <rect key="frame" x="20" y="45" width="293" height="130"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="qcP-zw-ahJ"/>
+                    <connections>
+                        <binding destination="ZOV-X6-WEq" name="value" keyPath="representedObject.image" id="aqn-66-a1h"/>
+                    </connections>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a22-rT-Nex">
+                    <rect key="frame" x="18" y="20" width="297" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="t9f-T2-hwk">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="ZOV-X6-WEq" name="value" keyPath="representedObject.name" id="bqB-Kg-BgZ"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <point key="canvasLocation" x="255.5" y="201.5"/>
+        </view>
     </objects>
 </document>
