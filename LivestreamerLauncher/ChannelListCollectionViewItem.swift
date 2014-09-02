@@ -11,6 +11,7 @@ import Foundation
 
 class ChannelListCollectionViewItem: NSView {
     
+    
     override func mouseDown(theEvent: NSEvent!) {
         let collectionView: NSCollectionView = self.superview as NSCollectionView;
         let index = find(collectionView.subviews as Array, self);
@@ -20,10 +21,5 @@ class ChannelListCollectionViewItem: NSView {
         task.launchPath = "/usr/local/bin/livestreamer";
         task.arguments = [channel.url, "best"];
         task.launch();
-        
-        
-        
-        
-        
     }
 }

@@ -15,7 +15,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var ChannelWindow: NSWindow!;
     @IBOutlet weak var CollectionView: NSCollectionView!;
     
-        
+    @IBOutlet weak var MainLoadingIndicator: NSProgressIndicator!
+    @IBOutlet weak var ChannelLoadIndicator: NSProgressIndicator!
+    
     dynamic var GameListing: [Game] = [];
     dynamic var ChannelListing: [Channel] = [];
     
@@ -56,7 +58,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func refreshGameListing() {
         GameListing = [];
-    
+        MainLoadingIndicator.hidden = false;
+        MainLoadingIndicator.startAnimation(self);
         let urlPath = "https://api.twitch.tv/kraken/games/top?client_id=" + clientID;
         var err: NSError?;
         let rawData:String = NSString.stringWithContentsOfURL(NSURL.URLWithString(urlPath), encoding: NSUTF8StringEncoding, error: &err);
@@ -79,10 +82,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
         }
+        MainLoadingIndicator.hidden = true;
+        MainLoadingIndicator.stopAnimation(self);
     }
     
     func refreshChannelListing(game: Game) {
         ChannelListing = [];
+        ChannelLoadIndicator.hidden = false;
+        ChannelLoadIndicator.startAnimation(self);
         println("Finding channels for " + game.name);
         let urlPath = "https://api.twitch.tv/kraken/streams?limit=20&offset=0&game=" + game.name.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil) + "&on_site=1?client_id=" + clientID;
         var err: NSError?;
@@ -106,6 +113,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
         }
+        ChannelLoadIndicator.hidden = true;
+        ChannelLoadIndicator.stopAnimation(self);
     }
 }
 

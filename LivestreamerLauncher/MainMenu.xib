@@ -13,8 +13,10 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="LivestreamerLauncher" customModuleProvider="target">
             <connections>
+                <outlet property="ChannelLoadIndicator" destination="tjv-IQ-jh6" id="eD9-OQ-hdl"/>
                 <outlet property="ChannelWindow" destination="PT2-O6-jRL" id="aTZ-An-Z0U"/>
                 <outlet property="CollectionView" destination="U4M-nf-M5x" id="XAV-Xa-vcx"/>
+                <outlet property="MainLoadingIndicator" destination="LFb-CA-tR4" id="ZpO-MD-Fjg"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -712,6 +714,9 @@
                             </connections>
                         </buttonCell>
                     </button>
+                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="LFb-CA-tR4">
+                        <rect key="frame" x="674" y="28" width="16" height="16"/>
+                    </progressIndicator>
                 </subviews>
             </view>
         </window>
@@ -810,6 +815,9 @@
                             <action selector="onBackButtonTriggered:" target="Voe-Tx-rLC" id="Jns-lg-lB5"/>
                         </connections>
                     </button>
+                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="tjv-IQ-jh6">
+                        <rect key="frame" x="674" y="27" width="16" height="16"/>
+                    </progressIndicator>
                 </subviews>
             </view>
             <connections>
@@ -845,6 +853,9 @@
                     </connections>
                 </textField>
             </subviews>
+            <connections>
+                <outlet property="ChannelLoadIndicator" destination="tjv-IQ-jh6" id="Vlj-uN-TSp"/>
+            </connections>
             <point key="canvasLocation" x="255.5" y="201.5"/>
         </view>
     </objects>
