@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3FAAD7343D42835CCDFACADE84ED102D8ED04CBE</key>
-		<string>https://github.com/AcceptableIce/LivestreamerLauncher.git</string>
+		<string>https://github.com/Corvimae/LivestreamerLauncher.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>LivestreamerLauncher.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/AcceptableIce/LivestreamerLauncher.git</string>
+	<string>https://github.com/Corvimae/LivestreamerLauncher.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

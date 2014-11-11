@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  LivestreamerLauncher
 //
-//  Created by Jake on 8/28/14.
-//  Copyright (c) 2014 Acceptable Ice Development. All rights reserved.
+//  Created by May on 8/28/14.
+//  Copyright (c) 2014 Corvimae Development. All rights reserved.
 //
 
 import Cocoa
@@ -60,7 +60,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         GameListing = [];
         MainLoadingIndicator.hidden = false;
         MainLoadingIndicator.startAnimation(self);
-        let urlPath = "https://api.twitch.tv/kraken/games/top?client_id=" + clientID;
+        let urlPath = "https://api.twitch.tv/kraken/games/top?limit=50&client_id=" + clientID;
         var err: NSError?;
         let rawData:String = NSString.stringWithContentsOfURL(NSURL.URLWithString(urlPath), encoding: NSUTF8StringEncoding, error: &err);
         

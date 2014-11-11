@@ -2,8 +2,8 @@
 //  GameListCollectionView.swift
 //  LivestreamerLauncher
 //
-//  Created by Jake on 9/1/14.
-//  Copyright (c) 2014 Acceptable Ice Development. All rights reserved.
+//  Created by May on 9/1/14.
+//  Copyright (c) 2014 Corvimae Development. All rights reserved.
 //
 
 import Cocoa

@@ -163,7 +163,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = "Acceptable Ice Development";
+				ORGANIZATIONNAME = "Corvimae Development";
 				TargetAttributes = {
 					058E1DE119AFC160002C5377 = {
 						CreatedOnToolsVersion = 6.0;
